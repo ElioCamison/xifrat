@@ -2,6 +2,7 @@
 public class Vigenere {
 
     static String encode(String s, String password) {
+
         return "";
     }
 
