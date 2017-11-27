@@ -2,30 +2,34 @@
 public class Vigenere {
 
     public static void main(String[] args) {
-        System.out.println(encode("AAA", "AAA"));
+        System.out.println(encode("BEN FET", "AKYP"));
     }
 
     static String encode(String s, String password) {
-        char[] abecedario = new char[26];
+        s.toUpperCase();
         StringBuilder result = new StringBuilder();
-        int[] posMensa = new int[s.length()] ;
-        int[] posPass = new int[password.length()];
-        int suma = 0;
+        String abecedario = "0ABCDEFGHIJKLMNOPQRSTUWXYZ";
+        int posMensa = 0, posPass = 0, contador = 0, suma;
 
-        for (int j = 0; j < 26; j++) {
-            abecedario[j] = (char) ('A' + j);
+        for (int i = 0; i < s.length(); i++) {
+            if (s.codePointAt(i) < 65 || s.codePointAt(i) > 90) {
+                result.append(s.charAt(i));
+            }
 
-            for (int i = 0; i < s.length(); i++) {
-                for (int k = 0; k < password.length(); k++) {
-                    if (abecedario[j] == s.charAt(i) && abecedario[j] == password.charAt(k)) {
-                        posMensa[i] = j;
-                        posPass[k] = j;
-                        //
-                        // suma = ;
-                        result.append(abecedario[suma]);
-                    }
+            while (contador < password.length()){
+                contador++;
+                if (contador == password.length()) contador = 0;
+            }
+            for (int j = 0; j < abecedario.length(); j++) {
+                if (s.charAt(i) == abecedario.charAt(j)) {
+                    posMensa = j;
+                }
+                if (password.charAt(i) == abecedario.charAt(j)) {
+                    posPass = j;
                 }
             }
+            suma = posMensa + posPass;
+            result.append(abecedario.charAt(suma));
         }
         return result.toString();
     }
