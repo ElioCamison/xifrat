@@ -3,18 +3,26 @@ import java.util.Arrays;
 public class Transposition {
 
     public static void main(String[] args) {
-
         System.out.println(cypher("ABCDEFG", 2));
     }
 
     static String cypher(String s, int dim) {
-        s.toUpperCase();
+        int alt = s.length() / dim;
+        if (s.length() / dim != 0) { alt++; }
 
-        for (int i = 0; i <s.length() ; i++) {
-            char[] matriu = new char[s.charAt(i)];
+        char[][] matriu = new char[alt][dim];
 
+        int pos = 0;
+        for (int i = 0; i < alt; i++) {
+            for (int j = 0; j < dim; j++) {
+                if (pos < s.length()) {
+                    matriu[i][j] = s.charAt(pos);
+                    pos++;
+                }
+            }
         }
-        //char[] matriu = s.toCharArray();
+
+        System.out.println(Arrays.deepToString(matriu));
 
         return "";
     }

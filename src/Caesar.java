@@ -4,10 +4,6 @@
  */
 public class Caesar {
 
-    public static void main(String[] args) {
-        System.out.println(cypher("Els patrons de consum d’abans de la crisi reneixen, segons els experts, i el Nadal en serà la prova, amb l’ingredient afegit del boom del comerç electrònic", 12));
-    }
-
     static String cypher(String s, int delta) {
         char[] abecedario = new char[26];
         int i;
@@ -40,8 +36,8 @@ public class Caesar {
 
     static String decypher(String s, int delta) {
         char[] abecedario = new char[26];
-        int i;
-        int j;
+        int i , j;
+
         s = s.toUpperCase();
         StringBuilder result = new StringBuilder();//We create a StringBuilder with the finality of constantly modifying the encrypted String.
 

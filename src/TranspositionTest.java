@@ -5,8 +5,7 @@ import static org.junit.Assert.*;
 public class TranspositionTest {
     @Test
     public void cypherTest() throws Exception {
-        assertEquals("ACEGBDF", Transposition.cypher("" +
-                "", 2));
+        assertEquals("ACEGBDF", Transposition.cypher("ABCDEFG", 2));
         assertEquals("AFBGCDE", Transposition.cypher("ABCDEFG", 5));
         assertEquals("AEBFCGDH", Transposition.cypher("ABCDEFGH", 4));
 
