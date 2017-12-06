@@ -2,10 +2,6 @@ import java.util.Arrays;
 
 public class Transposition {
 
-    public static void main(String[] args) {
-        System.out.println(cypher("ABCDEFG", 5));
-    } // "AFBGCDE"
-
     static String cypher(String s, int dim){
         int alt= s.length() / dim;
         if(s.length() > dim) alt++;
