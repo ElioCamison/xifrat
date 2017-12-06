@@ -6,7 +6,33 @@ public class Transposition {
         System.out.println(cypher("ABCDEFG", 5));
     } // "AFBGCDE"
 
-    static String cypher(String s, int dim) {
+    static String cypher(String s, int dim){
+        int alt= s.length() / dim;
+        if(s.length() > dim) alt++;
+
+        char[][] matriu = new char[alt][dim];
+        String result = "";
+        int pos = 0;
+            for(int j = 0; j < dim && pos < s.length(); j++) {
+                for(int i = 0; i < alt; i++) {
+                    matriu[i][j] = s.charAt(pos);
+                    pos++;
+            }
+        }
+
+        for(int x=0; x < dim; x++) {
+            for(int y = 0; y < alt; y++) {
+                if(matriu[y][x] != 0) {
+                    result += matriu[y][x];
+                }
+            }
+        }
+
+        return result;
+
+    }
+
+/*    static String cypher(String s, int dim) {
         int alt = s.length() / dim;
         if (s.length() / dim != 0) { alt++; }
         char[][] matriu = new char[alt][dim];
@@ -25,24 +51,12 @@ public class Transposition {
         }
         int aux = 1;
         while(aux < s.length()){
-            //result.append(s.charAt(aux));
+            if(s.codePointAt(j) < 65 || s.codePointAt(j) > 90 )continue;
+            result.append(s.charAt(aux));
             aux +=2;
         }
-
-        if(s.codePointAt(j) < 65 || s.codePointAt(j) > 90 ) {
-            System.out.println(matriu[0][0]);
-            System.out.println(matriu[0][1]);
-            System.out.println(matriu[0][2]);
-            System.out.println(matriu[0][3]);
-            System.out.println(matriu[0][4]);
-            System.out.println(matriu[1][1]);
-            System.out.println(matriu[1][2]);
-            System.out.println(matriu[1][3]);
-            System.out.println(matriu[1][4]);
-        }
-
         return result.toString();
-    }
+    }*/
 
     static String cypher(String s, String key) {
         return "";

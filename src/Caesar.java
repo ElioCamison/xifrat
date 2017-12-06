@@ -6,8 +6,7 @@ public class Caesar {
 
     static String cypher(String s, int delta) {
         char[] abecedario = new char[26];
-        int i;
-        int j;
+        int i, j;
         s = s.toUpperCase();
         StringBuilder result = new StringBuilder();//We create a StringBuilder with the finality of constantly modifying the encrypted String.
 
