@@ -9,12 +9,12 @@ public class Transposition {
     static String cypher(String s, int dim){
         int alt= s.length() / dim;
         if(s.length() > dim) alt++;
-
         char[][] matriu = new char[alt][dim];
         String result = "";
         int pos = 0;
+
+        for(int i = 0; i < alt; i++) {
             for(int j = 0; j < dim && pos < s.length(); j++) {
-                for(int i = 0; i < alt; i++) {
                     matriu[i][j] = s.charAt(pos);
                     pos++;
             }
