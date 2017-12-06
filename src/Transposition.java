@@ -3,8 +3,8 @@ import java.util.Arrays;
 public class Transposition {
 
     public static void main(String[] args) {
-        System.out.println(cypher("ABCDEFG", 2));
-    }
+        System.out.println(cypher("ABCDEFG", 5));
+    } // "AFBGCDE"
 
     static String cypher(String s, int dim) {
         int alt = s.length() / dim;
@@ -12,39 +12,37 @@ public class Transposition {
         char[][] matriu = new char[alt][dim];
         StringBuilder result = new StringBuilder();
 
-        int pos = 0;
-        for (int i = 0; i < alt; i++) {
-            for (int j = 0; j < dim; j++) {
+        int pos = 0, i, j = 0;
+
+        for (i = 0; i < alt; i++) {
+            for (j = 0; j < dim; j++) {
                 if (pos < s.length()) {
                     matriu[i][j] = s.charAt(pos);
                     pos++;
                 }
             }
+            result.append(matriu[i][0]);
+        }
+        int aux = 1;
+        while(aux < s.length()){
+            //result.append(s.charAt(aux));
+            aux +=2;
         }
 
-        result.append(matriu[0][0]);
-        result.append(matriu[1][0]);
-        result.append(matriu[2][0]);
-        result.append(matriu[3][0]);
-        result.append(matriu[0][1]);
-        result.append(matriu[1][1]);
-        result.append(matriu[2][1]);
-        System.out.println(result.toString());
+        if(s.codePointAt(j) < 65 || s.codePointAt(j) > 90 ) {
+            System.out.println(matriu[0][0]);
+            System.out.println(matriu[0][1]);
+            System.out.println(matriu[0][2]);
+            System.out.println(matriu[0][3]);
+            System.out.println(matriu[0][4]);
+            System.out.println(matriu[1][1]);
+            System.out.println(matriu[1][2]);
+            System.out.println(matriu[1][3]);
+            System.out.println(matriu[1][4]);
+        }
+
         return result.toString();
     }
-
-    /*static char[][] transpose(char[][] matriu, int alt, int dim){
-        StringBuilder res = new StringBuilder();
-
-        char[][] trans = new char[alt][dim];
-        for (int i = 0; i < matriu.length; i++) {
-            for (int j = 0; j < matriu[i].length; j++) {
-                res.append(i);
-            }
-        }
-        System.out.println(res.toString());
-        return trans;
-    }*/
 
     static String cypher(String s, String key) {
         return "";

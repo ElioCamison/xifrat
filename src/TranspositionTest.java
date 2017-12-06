@@ -6,8 +6,8 @@ public class TranspositionTest {
     @Test
     public void cypherTest() throws Exception {
         assertEquals("ACEGBDF", Transposition.cypher("ABCDEFG", 2));
-        /*assertEquals("AFBGCDE", Transposition.cypher("ABCDEFG", 5));
-        assertEquals("AEBFCGDH", Transposition.cypher("ABCDEFGH", 4));
+        assertEquals("AFBGCDE", Transposition.cypher("ABCDEFG", 5));
+        /*assertEquals("AEBFCGDH", Transposition.cypher("ABCDEFGH", 4));
 
         assertEquals("Latsmxeehnttieeeti eel a secnrseqnnn h m msts muot,qisomà i.màe i u olatmd",
                 Transposition.cypher("Les matemàtiques no mentixen, el que hi ha son molts matemàtics mentiders.", 5));
