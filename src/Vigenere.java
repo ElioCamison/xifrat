@@ -4,8 +4,7 @@ public class Vigenere {
 
     static String encode(String s, String password) {
         StringBuilder result = new StringBuilder();
-        String mensa = modificar(s);
-        String pass = modificar(password.toUpperCase());
+        String mensa = modificar(s) , pass = modificar(password.toUpperCase()); // Creat two variable, mensa and pass
         int posMensa = 0, posPass = 0, suma;
 
         int indexPass = 0;
@@ -21,7 +20,7 @@ public class Vigenere {
                 continue;
             } else {
                 char carPassw = pass.charAt(indexPass);
-                indexPass = indexPass + 1;
+                indexPass ++;
                 if (indexPass == pass.length()) {
                     indexPass = 0;
                 }
@@ -84,7 +83,7 @@ public class Vigenere {
         StringBuilder result = new StringBuilder();
         String mensa = modificar(s);
         String pass = modificar(password.toUpperCase());
-        int posMensa = 0, posPass = 0, suma;
+        int posMensa = 0, posPass = 0, resta;
 
         int indexPass = 0;
         for (int i = 0; i < mensa.length(); i++) {
@@ -106,17 +105,17 @@ public class Vigenere {
                 posMensa = cerca(carMensaje);
                 posPass = cerca(carPassw);
 
-                suma = posMensa - posPass;
+                resta = posMensa - posPass;
 
-                if (suma < 0) {
-                    suma = Math.abs(suma);
-                    suma = (abecedario.length() - 1) - suma;
+                if (resta < 0) {
+                    resta = Math.abs(resta);
+                    resta = (abecedario.length() - 1) - resta;
                 } else {
-                    while (suma > 26) {
-                        suma -= 26;
+                    while (resta > 26) {
+                        resta -= 26;
                     }
                 }
-                result.append(abecedario.charAt(suma));
+                result.append(abecedario.charAt(resta));
             }
         }
         return result.toString();
